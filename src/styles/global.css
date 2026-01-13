@@ -1,0 +1,530 @@
+@import "tailwindcss";
+@import './fonts.css';
+
+/* Design Tokens - La Festa delle Medie */
+:root {
+  /* Colors */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-light: #F5F5F5;
+  --color-gray-dark: #1A1A1A;
+
+  /* Dynamic Theme Color - Controllabile da CMS */
+  --color-theme: #FF0000;           /* Default: Rosso */
+  --color-theme-rgb: 255, 0, 0;     /* RGB values per trasparenze */
+
+  /* Typography - Sistema Multi-Font Artistico */
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-family: var(--font-body); /* Fallback */
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 2rem;        /* 32px */
+  --text-4xl: 2.5rem;      /* 40px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 4rem;        /* 64px */
+  --text-7xl: 5rem;        /* 80px */
+  --text-8xl: 6rem;        /* 96px */
+  --text-9xl: 8rem;        /* 128px */
+  --text-10xl: 10rem;      /* 160px */
+  --text-11xl: 12rem;      /* 192px */
+
+  /* Line Heights - Ottimizzati per gerarchia artistica */
+  --leading-none: 1;
+  --leading-display: 0.85;    /* Per H1 hero ultra-grandi */
+  --leading-tight: 0.95;      /* Per H2 impattanti */
+  --leading-snug: 1.1;        /* Per H3-H4 */
+  --leading-normal: 1.5;      /* Per body text */
+  --leading-relaxed: 1.7;     /* Per paragrafi lunghi */
+
+  /* Letter Spacing - Precisione tipografica artistica */
+  --tracking-tighter: -0.03em;   /* Per H1 ultra-grande */
+  --tracking-tight: -0.015em;    /* Per H2-H3 */
+  --tracking-normal: 0;          /* Per body e H4 */
+  --tracking-wide: 0.02em;       /* Per mono e small caps */
+  --tracking-wider: 0.05em;      /* Per elementi speciali */
+  --tracking-widest: 0.1em;      /* Per uppercase estremi */
+
+  /* Spacing */
+  --space-xs: 0.5rem;      /* 8px */
+  --space-sm: 1rem;        /* 16px */
+  --space-md: 2rem;        /* 32px */
+  --space-lg: 4rem;        /* 64px */
+  --space-xl: 6rem;        /* 96px */
+  --space-2xl: 8rem;       /* 128px */
+  --space-3xl: 12rem;      /* 192px */
+
+  /* Container */
+  --container-max: 1400px;
+  --container-padding: 2.5rem; /* 40px */
+  --container-padding-mobile: 1.25rem; /* 20px */
+
+  /* Grid */
+  --grid-gap: 2rem;        /* 32px */
+  --grid-gap-lg: 2.5rem;   /* 40px */
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-lg);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Typography - Gerarchia Artistica Sofisticata */
+
+/* Titoli - Font Display Syne */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* H1 - Hero Display Ultra-Bold */
+h1 {
+  font-size: var(--text-10xl);         /* 160px */
+  font-weight: 800;                    /* ExtraBold */
+  line-height: var(--leading-display); /* 0.85 */
+  letter-spacing: var(--tracking-tighter); /* -0.03em */
+  font-variation-settings: 'wght' 800;
+}
+
+/* H2 - Section Headers */
+h2 {
+  font-size: var(--text-7xl);          /* 80px */
+  font-weight: 700;                    /* Bold */
+  line-height: var(--leading-tight);   /* 0.95 */
+  letter-spacing: var(--tracking-tight); /* -0.015em */
+  font-variation-settings: 'wght' 700;
+}
+
+/* H3 - Sub Headers */
+h3 {
+  font-size: var(--text-5xl);          /* 48px */
+  font-weight: 600;                    /* SemiBold */
+  line-height: var(--leading-snug);    /* 1.1 */
+  letter-spacing: var(--tracking-tight);
+  font-variation-settings: 'wght' 600;
+}
+
+/* H4 - Card Titles */
+h4 {
+  font-size: var(--text-3xl);          /* 32px */
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-normal);
+  font-variation-settings: 'wght' 600;
+}
+
+h5 {
+  font-size: var(--text-2xl);          /* 24px */
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h6 {
+  font-size: var(--text-xl);           /* 20px */
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Body Text - Font Inter */
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);           /* 18px */
+  font-weight: 400;
+  line-height: var(--leading-relaxed); /* 1.7 */
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+p.lead {
+  font-size: var(--text-xl);           /* 20px */
+  font-weight: 500;
+  line-height: var(--leading-normal);  /* 1.5 */
+}
+
+p.small {
+  font-size: var(--text-base);         /* 16px */
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Mono/Technical - JetBrains Mono per date, orari, dati */
+.mono,
+time,
+.date,
+.number {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);           /* 14px */
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide); /* 0.02em */
+  text-transform: uppercase;
+}
+
+/* Strong emphasis */
+strong, b {
+  font-weight: 600;
+}
+
+/* Emphasis */
+em, i {
+  font-style: italic;
+}
+
+/* Utility Classes */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Responsive Typography - Mantenendo proporzioni artistiche */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: var(--text-8xl);        /* 96px */
+  }
+
+  h2 {
+    font-size: var(--text-6xl);        /* 64px */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--container-padding-mobile);
+  }
+
+  body {
+    font-size: var(--text-base);      /* 16px */
+  }
+
+  h1 {
+    font-size: var(--text-6xl);        /* 64px */
+    letter-spacing: var(--tracking-tight);
+  }
+
+  h2 {
+    font-size: var(--text-5xl);        /* 48px */
+  }
+
+  h3 {
+    font-size: var(--text-4xl);        /* 40px */
+  }
+
+  h4 {
+    font-size: var(--text-2xl);        /* 24px */
+  }
+
+  p {
+    font-size: var(--text-base);       /* 16px */
+  }
+
+  p.lead {
+    font-size: var(--text-lg);         /* 18px */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: var(--text-5xl);        /* 48px */
+    line-height: var(--leading-tight); /* 0.95 */
+  }
+
+  h2 {
+    font-size: var(--text-4xl);        /* 40px */
+  }
+
+  h3 {
+    font-size: var(--text-3xl);        /* 32px */
+  }
+
+  h4 {
+    font-size: var(--text-xl);         /* 20px */
+  }
+}
+
+/* Brutalist Borders */
+.border-brutal {
+  border: 2px solid var(--color-black);
+}
+
+.border-brutal-thick {
+  border: 4px solid var(--color-black);
+}
+
+/* Images & Media */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Sistema Overlay Monocromatico - Controllabile da CMS */
+
+/* Media Wrapper - Container per immagini/video con overlay */
+.media-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.media-wrapper img,
+.media-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Overlay Gradiente Monocromatico */
+.media-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-theme-rgb), 0.7) 0%,
+    rgba(var(--color-theme-rgb), 0.85) 100%
+  );
+  mix-blend-mode: multiply;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hover: Rivela immagine originale */
+.media-wrapper:hover::after {
+  opacity: 0;
+}
+
+.media-wrapper:hover img,
+.media-wrapper:hover video {
+  transform: scale(1.02);
+}
+
+/* Varianti di intensità overlay */
+.media-wrapper.overlay-light::after {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-theme-rgb), 0.4) 0%,
+    rgba(var(--color-theme-rgb), 0.6) 100%
+  );
+}
+
+.media-wrapper.overlay-heavy::after {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-theme-rgb), 0.85) 0%,
+    rgba(var(--color-theme-rgb), 0.95) 100%
+  );
+}
+
+/* Varianti di direzione gradiente */
+.media-wrapper.overlay-horizontal::after {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--color-theme-rgb), 0.7) 0%,
+    rgba(var(--color-theme-rgb), 0.85) 100%
+  );
+}
+
+.media-wrapper.overlay-radial::after {
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color-theme-rgb), 0.5) 0%,
+    rgba(var(--color-theme-rgb), 0.9) 100%
+  );
+}
+
+/* Overlay solid (senza gradiente) */
+.media-wrapper.overlay-solid::after {
+  background: rgba(var(--color-theme-rgb), 0.75);
+}
+
+/* Disabilita overlay su specifici elementi */
+.media-wrapper.no-overlay::after {
+  display: none;
+}
+
+/* Overlay permanente (no hover effect) */
+.media-wrapper.overlay-permanent:hover::after {
+  opacity: 1;
+}
+
+.media-wrapper.overlay-permanent:hover img,
+.media-wrapper.overlay-permanent:hover video {
+  transform: none;
+}
+
+/* Buttons - Display Font Bold */
+button, .btn {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: 3px solid var(--color-black);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  transition: all 0.2s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section Spacing */
+section {
+  padding: 0;
+}
+
+section:not(.hero) {
+  padding: var(--space-xl) 0;
+}
+
+@media (max-width: 768px) {
+  section:not(.hero) {
+    padding: var(--space-lg) 0;
+  }
+}
+
+/* Utility Classes - Tipografia Artistica */
+
+/* Font Family Utilities */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Text Size Utilities */
+.text-display {
+  font-size: var(--text-10xl);
+  font-weight: 800;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-tighter);
+  font-family: var(--font-display);
+}
+
+.text-hero {
+  font-size: var(--text-8xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-family: var(--font-display);
+}
+
+.text-section {
+  font-size: var(--text-6xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  font-family: var(--font-display);
+}
+
+/* Numero Display Gigante - Artistico */
+.number-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variation-settings: 'wght' 800;
+  line-height: 0.8;
+  letter-spacing: var(--tracking-tighter);
+}
+
+/* Text Transform */
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* Font Weights */
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}

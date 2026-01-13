@@ -1,0 +1,146 @@
+---
+import EventCard from '../ui/EventCard.astro';
+import Container from '../ui/Container.astro';
+
+interface Event {
+  title: string;
+  date?: string;
+  image: string;
+  description?: string;
+  slug?: string;
+}
+
+interface Props {
+  events: Event[];
+  title?: string;
+}
+
+const { events, title } = Astro.props;
+---
+
+<section class="event-grid-section">
+  <Container>
+    {title && (
+      <h2 class="section-title">{title}</h2>
+    )}
+
+    <div class="event-grid">
+      {events.map((event, index) => (
+        <EventCard
+          title={event.title}
+          date={event.date}
+          image={event.image}
+          description={event.description}
+          slug={event.slug}
+          index={index}
+        />
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .event-grid-section {
+    padding: 160px 0 200px;
+    margin-left: 100px;
+    position: relative;
+  }
+
+  .event-grid-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100px;
+    width: 1px;
+    height: 200px;
+    background: var(--color-black);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 120px;
+    font-weight: 800;
+    font-variation-settings: 'wght' 800;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-tighter);
+    margin-bottom: 120px;
+    line-height: var(--leading-display);
+    max-width: 800px;
+  }
+
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 100px 80px;
+    position: relative;
+  }
+
+  .event-grid::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: 80px;
+      margin-bottom: 80px;
+    }
+
+    .event-grid {
+      gap: 80px 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .event-grid-section {
+      padding: 120px 0 140px;
+      margin-left: 60px;
+    }
+
+    .event-grid-section::before {
+      left: -60px;
+      height: 120px;
+    }
+
+    .section-title {
+      font-size: 56px;
+      margin-bottom: 60px;
+    }
+
+    .event-grid {
+      grid-template-columns: 1fr;
+      gap: 80px;
+    }
+
+    .event-grid::before {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .event-grid-section {
+      padding: 80px 0 100px;
+      margin-left: 50px;
+    }
+
+    .event-grid-section::before {
+      left: -50px;
+      height: 80px;
+    }
+
+    .section-title {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+
+    .event-grid {
+      gap: 60px;
+    }
+  }
+</style>

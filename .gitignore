@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Materiali originali (non servono in produzione)
+materiali/
+
+# Reference screenshots
+reference/

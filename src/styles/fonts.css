@@ -1,0 +1,12 @@
+/* Google Fonts - Sistema Tipografico Artistico */
+
+/*
+ * I font sono ora caricati direttamente in BaseLayout.astro con <link> tags
+ * per evitare conflitti con Tailwind CSS e migliorare performance
+ */
+
+/* Font Families utilizzate:
+ * - Syne: Display/Titoli - Geometrico e contemporaneo
+ * - Inter: Body - Massima leggibilità e versatilità
+ * - JetBrains Mono: Accent/Mono - Per date e dettagli tecnici
+ */

@@ -1,0 +1,32 @@
+---
+/**
+ * ThemeColorLoader
+ * Carica il colore del tema dal CMS e lo applica come CSS custom property
+ */
+
+// Importa le impostazioni del sito
+import siteSettings from '../content/settings/site.json';
+
+// Funzione helper per convertire HEX in RGB
+function hexToRgb(hex: string): string {
+  // Rimuovi il # se presente
+  hex = hex.replace('#', '');
+
+  // Parse hex values
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+
+  return `${r}, ${g}, ${b}`;
+}
+
+const themeColor = siteSettings.themeColor || '#FF0000';
+const themeColorRgb = hexToRgb(themeColor);
+---
+
+<style define:vars={{ themeColor, themeColorRgb }}>
+  :root {
+    --color-theme: var(--themeColor);
+    --color-theme-rgb: var(--themeColorRgb);
+  }
+</style>

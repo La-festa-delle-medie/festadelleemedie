@@ -1,0 +1,124 @@
+---
+// Footer Component - Brutalist Minimal
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-title">La Festa delle Medie</h3>
+        <p class="footer-text">
+          Un progetto culturale che unisce arte, musica e comunità.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-subtitle">Contatti</h4>
+        <div class="footer-links">
+          <a href="mailto:info@lafestadellemedie.it" class="footer-link">
+            info@lafestadellemedie.it
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © {new Date().getFullYear()} La Festa delle Medie. Tutti i diritti riservati.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: var(--space-xl) 0 var(--space-md);
+    margin-top: var(--space-2xl);
+    margin-left: 100px;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-xs);
+    text-transform: none;
+  }
+
+  .footer-subtitle {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .footer-text {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    max-width: 300px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .footer-link {
+    font-size: var(--text-base);
+    font-weight: 400;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: var(--space-md);
+  }
+
+  .footer-copyright {
+    font-size: var(--text-sm);
+    text-align: center;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: var(--space-lg) 0 var(--space-md);
+      margin-top: var(--space-xl);
+      margin-left: 60px;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .footer-title {
+      font-size: var(--text-xl);
+    }
+
+    .footer-subtitle {
+      font-size: var(--text-base);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer {
+      margin-left: 50px;
+    }
+  }
+</style>

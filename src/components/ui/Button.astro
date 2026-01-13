@@ -1,0 +1,57 @@
+---
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'outline';
+  class?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  class: className = ''
+} = Astro.props;
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element
+  href={href}
+  type={!href ? type : undefined}
+  class={`btn btn-${variant} ${className}`}
+>
+  <slot />
+</Element>
+
+<style>
+  .btn {
+    display: inline-block;
+    font-family: var(--font-family);
+    font-size: var(--text-base);
+    font-weight: 700;
+    padding: var(--space-sm) var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    border: 2px solid var(--color-black);
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  .btn-outline {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  @media (max-width: 768px) {
+    .btn {
+      font-size: var(--text-sm);
+      padding: var(--space-xs) var(--space-sm);
+    }
+  }
+</style>

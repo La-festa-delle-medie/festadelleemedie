@@ -1,0 +1,72 @@
+# Backend per production (Git Gateway)
+# backend:
+#   name: git-gateway
+#   branch: main
+
+# Backend per Development (Local)
+backend:
+  name: test-repo
+
+# Decommentare la sezione sopra per production, commentare test-repo
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: "it"
+
+collections:
+  - name: "eventi"
+    label: "Eventi"
+    folder: "src/content/eventi"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data Pubblicazione", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY" }
+      - { label: "Immagine", name: "image", widget: "image" }
+      - { label: "Descrizione Breve", name: "description", widget: "text" }
+      - { label: "Corpo", name: "body", widget: "markdown" }
+      - { label: "Pubblicato", name: "published", widget: "boolean", default: true }
+
+  - name: "pages"
+    label: "Pagine"
+    files:
+      - label: "Chi Siamo"
+        name: "chi-siamo"
+        file: "src/content/pages/chi-siamo.md"
+        fields:
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "Descrizione", name: "description", widget: "text" }
+          - { label: "Corpo", name: "body", widget: "markdown" }
+
+      - label: "Contatti"
+        name: "contatti"
+        file: "src/content/pages/contatti.md"
+        fields:
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "Descrizione", name: "description", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Corpo", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Impostazioni"
+    files:
+      - label: "Informazioni Sito"
+        name: "site"
+        file: "src/content/settings/site.json"
+        fields:
+          - { label: "Titolo Sito", name: "title", widget: "string" }
+          - { label: "Descrizione", name: "description", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Colore Tema Overlay"
+            name: "themeColor"
+            widget: "color"
+            default: "#FF0000"
+            hint: "Colore per il filtro monocromatico sulle immagini. Definisce la palette del sito insieme a bianco e nero."
+            enableAlpha: false
+            allowInput: true
+          - label: "Immagine Hero Homepage"
+            name: "heroImage"
+            widget: "image"
+            hint: "Immagine grande in apertura homepage"
+            default: "/images/img 5.jpg"

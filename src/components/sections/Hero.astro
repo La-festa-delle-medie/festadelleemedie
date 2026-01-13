@@ -1,0 +1,56 @@
+---
+interface Props {
+  image: string;
+  imageAlt?: string;
+}
+
+const {
+  image,
+  imageAlt = 'La Festa delle Medie'
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="media-wrapper overlay-permanent hero-media">
+    <img
+      src={image}
+      alt={imageAlt}
+      class="hero-image"
+    />
+  </div>
+</section>
+
+<style>
+  .hero {
+    width: calc(100vw - 100px);
+    height: 100vh;
+    position: relative;
+    margin-left: 100px;
+  }
+
+  .hero-media {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      width: calc(100vw - 60px);
+      margin-left: 60px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      width: calc(100vw - 50px);
+      margin-left: 50px;
+    }
+  }
+</style>
