@@ -1,13 +1,14 @@
 ---
 // Header Component - Sidebar a sinistra
+const base = import.meta.env.BASE_URL;
 ---
 
 <header class="header">
   <div class="header-content">
-    <a href="/" class="logo">
-      <img src="/images/logo.png" alt="La Festa delle Medie" class="logo-img">
+    <a href={base} class="logo">
+      <img src={`${base}images/logo.png`} alt="La Festa delle Medie" class="logo-img">
     </a>
-    <a href="/en" class="lang-switch">EN</a>
+    <a href={`${base}en`} class="lang-switch">EN</a>
   </div>
 </header>
 
@@ -24,20 +25,20 @@
     <button class="menu-close" id="menuClose">Chiudi</button>
 
     <nav class="nav-main">
-      <a href="/" class="nav-link">Home</a>
+      <a href={base} class="nav-link">Home</a>
       <div class="nav-group">
         <span class="nav-group-label">Archivio</span>
         <div class="nav-group-links">
-          <a href="/archivio/2025" class="nav-sublink">2025</a>
-          <a href="/archivio/2024" class="nav-sublink">2024</a>
-          <a href="/archivio/2023" class="nav-sublink">2023</a>
+          <a href={`${base}archivio/2025`} class="nav-sublink">2025</a>
+          <a href={`${base}archivio/2024`} class="nav-sublink">2024</a>
+          <a href={`${base}archivio/2023`} class="nav-sublink">2023</a>
         </div>
       </div>
-      <a href="/chi-siamo" class="nav-link">Chi Siamo</a>
-      <a href="/ambassador" class="nav-link">Ambassador</a>
-      <a href="/support" class="nav-link">Support</a>
-      <a href="/shop" class="nav-link">Shop</a>
-      <a href="/contatti" class="nav-link">Contatti</a>
+      <a href={`${base}chi-siamo`} class="nav-link">Chi Siamo</a>
+      <a href={`${base}ambassador`} class="nav-link">Ambassador</a>
+      <a href={`${base}support`} class="nav-link">Support</a>
+      <a href={`${base}shop`} class="nav-link">Shop</a>
+      <a href={`${base}contatti`} class="nav-link">Contatti</a>
     </nav>
 
     <div class="menu-footer">

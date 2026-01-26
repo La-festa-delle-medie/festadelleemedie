@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -20,7 +22,7 @@ import BaseLayout from '../components/layout/BaseLayout.astro';
 
       <!-- Immagine principale -->
       <div class="page-image">
-        <img src="/images/event1.jpg" alt="La Festa delle Medie" />
+        <img src={`${base}images/event1.jpg`} alt="La Festa delle Medie" />
       </div>
 
       <!-- Contenuto -->
@@ -55,7 +57,7 @@ import BaseLayout from '../components/layout/BaseLayout.astro';
 
       <!-- CTA -->
       <div class="page-cta">
-        <a href="/eventi" class="btn-outline">Scopri gli Eventi</a>
+        <a href={base} class="btn-outline">Scopri gli Eventi</a>
       </div>
     </div>
   </div>

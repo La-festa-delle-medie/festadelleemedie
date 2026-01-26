@@ -1,5 +1,6 @@
 ---
 // Footer Component - Stile Hypermaremma
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="footer">
@@ -11,7 +12,7 @@
         <p class="friends-description">
           Sostieni il nostro progetto culturale e diventa parte della comunita
         </p>
-        <a href="/sostienici" class="btn btn-white">
+        <a href={`${base}sostienici`} class="btn btn-white">
           Sostienici
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -27,8 +28,8 @@
       <div class="footer-grid">
         <!-- Logo e descrizione -->
         <div class="footer-brand">
-          <a href="/" class="footer-logo">
-            <img src="/images/logo.png" alt="La Festa delle Medie" class="footer-logo-img">
+          <a href={base} class="footer-logo">
+            <img src={`${base}images/logo.png`} alt="La Festa delle Medie" class="footer-logo-img">
           </a>
           <p class="footer-description">
             Un progetto culturale che unisce arte, musica e comunita nel cuore del territorio.
@@ -39,12 +40,12 @@
         <div class="footer-nav">
           <h4 class="footer-nav-title">Navigazione</h4>
           <nav class="footer-nav-links">
-            <a href="/" class="footer-nav-link">Home</a>
-            <a href="/chi-siamo" class="footer-nav-link">Chi Siamo</a>
-            <a href="/ambassador" class="footer-nav-link">Ambassador</a>
-            <a href="/support" class="footer-nav-link">Support</a>
-            <a href="/shop" class="footer-nav-link">Shop</a>
-            <a href="/contatti" class="footer-nav-link">Contatti</a>
+            <a href={base} class="footer-nav-link">Home</a>
+            <a href={`${base}chi-siamo`} class="footer-nav-link">Chi Siamo</a>
+            <a href={`${base}ambassador`} class="footer-nav-link">Ambassador</a>
+            <a href={`${base}support`} class="footer-nav-link">Support</a>
+            <a href={`${base}shop`} class="footer-nav-link">Shop</a>
+            <a href={`${base}contatti`} class="footer-nav-link">Contatti</a>
           </nav>
         </div>
 
@@ -65,8 +66,8 @@
           {new Date().getFullYear()} La Festa delle Medie. Tutti i diritti riservati.
         </span>
         <div class="footer-legal">
-          <a href="/privacy" class="footer-legal-link">Privacy Policy</a>
-          <a href="/trasparenza" class="footer-legal-link">Trasparenza</a>
+          <a href={`${base}privacy`} class="footer-legal-link">Privacy Policy</a>
+          <a href={`${base}trasparenza`} class="footer-legal-link">Trasparenza</a>
         </div>
       </div>
     </div>

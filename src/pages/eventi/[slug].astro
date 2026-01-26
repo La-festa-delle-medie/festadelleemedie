@@ -13,6 +13,9 @@ export async function getStaticPaths() {
 const { evento } = Astro.props;
 const { title, date, location, image, description } = evento.data;
 const { Content } = await evento.render();
+
+const base = import.meta.env.BASE_URL;
+const imageSrc = image.startsWith('/') ? `${base}${image.slice(1)}` : image;
 ---
 
 <BaseLayout
@@ -23,7 +26,7 @@ const { Content } = await evento.render();
     <div class="container">
       <article class="event-detail">
         <header class="event-header">
-          <a href="/" class="back-link">Torna alla home</a>
+          <a href={base} class="back-link">Torna alla home</a>
           <h1 class="event-title">{title}</h1>
           <div class="event-meta">
             <span class="event-date">{date}</span>
@@ -32,7 +35,7 @@ const { Content } = await evento.render();
         </header>
 
         <div class="event-image">
-          <img src={image} alt={title} />
+          <img src={imageSrc} alt={title} />
         </div>
 
         <div class="event-content">

@@ -6,6 +6,8 @@ import Newsletter from '../components/sections/Newsletter.astro';
 import { getCollection } from 'astro:content';
 import siteSettings from '../content/settings/site.json';
 
+const base = import.meta.env.BASE_URL;
+
 // Carica eventi dal CMS
 const allEvents = await getCollection('eventi');
 const publishedEvents = allEvents.filter(e => e.data.published);
@@ -43,7 +45,7 @@ const archiveYears = [...new Set(
   title="La Festa delle Medie"
   description="Un progetto culturale che unisce arte, musica e comunita"
 >
-  <Hero useGradient={false} image="/images/img 4.jpg" />
+  <Hero useGradient={false} image={`${base}images/img 4.jpg`} />
 
   <div class="content-below-hero">
     <div class="content-wrapper">
