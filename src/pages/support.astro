@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+
+// Opzioni di sostegno
+const supportOptions = [
+  {
+    name: 'Sostenitore',
+    price: '50',
+    description: 'Sostieni il Festival con una donazione e ricevi aggiornamenti esclusivi sugli eventi.',
+    link: 'https://www.paypal.com/donate?hosted_button_id=EXAMPLE1'
+  },
+  {
+    name: 'Amico del Festival',
+    price: '100',
+    description: 'Diventa parte della nostra comunita con accesso prioritario e contenuti speciali.',
+    link: 'https://www.paypal.com/donate?hosted_button_id=EXAMPLE2'
+  }
+];
+---
+
+<BaseLayout
+  title="Support - La Festa delle Medie"
+  description="Sostieni La Festa delle Medie e contribuisci alla diffusione della cultura nel territorio"
+>
+  <div class="page-content">
+    <div class="container">
+      <!-- Header -->
+      <header class="page-header">
+        <h1 class="page-title">Support</h1>
+      </header>
+
+      <!-- Intro -->
+      <section class="intro-section">
+        <p class="intro-text">
+          Il tuo contributo ci permette di continuare a portare arte e cultura
+          nel territorio, rendendo gli eventi accessibili a tutti.
+        </p>
+      </section>
+
+      <!-- Opzioni di sostegno -->
+      <section class="support-section">
+        <div class="support-grid">
+          {supportOptions.map((option) => (
+            <div class="support-card">
+              <h3 class="support-name">{option.name}</h3>
+              <div class="support-price">
+                <span class="price-amount">{option.price}</span>
+                <span class="price-currency">EUR</span>
+              </div>
+              <p class="support-description">{option.description}</p>
+              <a href={option.link} target="_blank" rel="noopener noreferrer" class="btn-support">
+                Sostieni
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Contatti -->
+      <section class="contact-section">
+        <p class="contact-text">
+          Per maggiori informazioni scrivi a
+          <a href="mailto:support@festadellemedie.it">support@festadellemedie.it</a>
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding-top: calc(72px + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .page-title {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+  }
+
+  .intro-section {
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+  }
+
+  .intro-text {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    color: var(--color-gray-dark);
+    margin: 0;
+  }
+
+  .support-section {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .support-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    max-width: 800px;
+  }
+
+  .support-card {
+    padding: var(--space-xl);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .support-name {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+  }
+
+  .support-price {
+    margin-bottom: var(--space-lg);
+  }
+
+  .price-amount {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+  }
+
+  .price-currency {
+    font-size: var(--text-lg);
+    color: var(--color-gray);
+  }
+
+  .support-description {
+    font-size: var(--text-base);
+    color: var(--color-gray-dark);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-xl);
+  }
+
+  .btn-support {
+    display: inline-block;
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: var(--space-sm) var(--space-xl);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-wider);
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+  }
+
+  .btn-support:hover {
+    background: var(--color-accent);
+    opacity: 1;
+  }
+
+  .contact-section {
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-text {
+    font-size: var(--text-base);
+    color: var(--color-gray-dark);
+    margin: 0;
+  }
+
+  .contact-text a {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .page-content {
+      padding-top: calc(65px + var(--space-2xl));
+    }
+
+    .page-title {
+      font-size: var(--text-3xl);
+    }
+
+    .intro-text {
+      font-size: var(--text-lg);
+    }
+
+    .support-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }
+</style>

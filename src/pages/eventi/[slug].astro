@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const eventi = await getCollection('eventi');
+  return eventi.map((evento) => ({
+    params: { slug: evento.slug },
+    props: { evento },
+  }));
+}
+
+const { evento } = Astro.props;
+const { title, date, location, image, description } = evento.data;
+const { Content } = await evento.render();
+---
+
+<BaseLayout
+  title={`${title} - La Festa delle Medie`}
+  description={description}
+>
+  <div class="page-content">
+    <div class="container">
+      <article class="event-detail">
+        <header class="event-header">
+          <a href="/" class="back-link">Torna alla home</a>
+          <h1 class="event-title">{title}</h1>
+          <div class="event-meta">
+            <span class="event-date">{date}</span>
+            {location && <span class="event-location">{location}</span>}
+          </div>
+        </header>
+
+        <div class="event-image">
+          <img src={image} alt={title} />
+        </div>
+
+        <div class="event-content">
+          <p class="event-description">{description}</p>
+          <div class="event-body prose">
+            <Content />
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding-top: calc(72px + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
+  }
+
+  .event-detail {
+    max-width: 900px;
+  }
+
+  .event-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: var(--text-sm);
+    color: var(--color-gray);
+    text-decoration: none;
+    margin-bottom: var(--space-lg);
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+    opacity: 1;
+  }
+
+  .event-title {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+
+  .event-meta {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .event-date {
+    font-size: var(--text-lg);
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .event-location {
+    font-size: var(--text-lg);
+    color: var(--color-gray);
+  }
+
+  .event-image {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .event-image img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .event-content {
+    max-width: 700px;
+  }
+
+  .event-description {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    color: var(--color-gray-dark);
+    margin: 0;
+  }
+
+  .event-body {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .prose {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-gray-dark);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-black);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .prose :global(h3) {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-lg);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+  }
+
+  .prose :global(li) {
+    margin-bottom: var(--space-sm);
+  }
+
+  .prose :global(strong) {
+    font-weight: 600;
+    color: var(--color-black);
+  }
+
+  .prose :global(a) {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .page-content {
+      padding-top: calc(65px + var(--space-2xl));
+    }
+
+    .event-title {
+      font-size: var(--text-3xl);
+    }
+
+    .event-meta {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .event-date,
+    .event-location {
+      font-size: var(--text-base);
+    }
+
+    .event-description {
+      font-size: var(--text-lg);
+    }
+  }
+</style>

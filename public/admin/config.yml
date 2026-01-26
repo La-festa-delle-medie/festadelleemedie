@@ -22,10 +22,29 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Data Pubblicazione", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY" }
+      - { label: "Data", name: "date", widget: "string", hint: "Es: 8 Marzo 2025" }
+      - label: "Anno"
+        name: "year"
+        widget: "select"
+        options: ["2023", "2024", "2025", "2026", "2027"]
+        default: "2025"
+        hint: "Anno dell'edizione del festival"
+      - { label: "Luogo", name: "location", widget: "string", required: false }
       - { label: "Immagine", name: "image", widget: "image" }
       - { label: "Descrizione Breve", name: "description", widget: "text" }
-      - { label: "Corpo", name: "body", widget: "markdown" }
+      - { label: "Evento Passato", name: "isPast", widget: "boolean", default: false, hint: "Attiva se l'evento e gia avvenuto" }
+      - { label: "Pubblicato", name: "published", widget: "boolean", default: true }
+
+  - name: "shop"
+    label: "Shop"
+    folder: "src/content/shop"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nome Prodotto", name: "title", widget: "string" }
+      - { label: "Prezzo (EUR)", name: "price", widget: "number", value_type: "int" }
+      - { label: "Immagine", name: "image", widget: "image" }
+      - { label: "Link Acquisto", name: "buyLink", widget: "string", hint: "URL esterno per acquisto (es: PayPal, Stripe)" }
       - { label: "Pubblicato", name: "published", widget: "boolean", default: true }
 
   - name: "pages"

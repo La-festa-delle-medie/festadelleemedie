@@ -1,124 +1,278 @@
 ---
-// Footer Component - Brutalist Minimal
+// Footer Component - Stile Hypermaremma
 ---
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3 class="footer-title">La Festa delle Medie</h3>
-        <p class="footer-text">
-          Un progetto culturale che unisce arte, musica e comunità.
+  <!-- Sezione Amici -->
+  <section class="friends-section">
+    <div class="container">
+      <div class="friends-content">
+        <h3 class="friends-title">Amici della Festa</h3>
+        <p class="friends-description">
+          Sostieni il nostro progetto culturale e diventa parte della comunita
         </p>
-      </div>
-
-      <div class="footer-section">
-        <h4 class="footer-subtitle">Contatti</h4>
-        <div class="footer-links">
-          <a href="mailto:info@lafestadellemedie.it" class="footer-link">
-            info@lafestadellemedie.it
-          </a>
-        </div>
+        <a href="/sostienici" class="btn btn-white">
+          Sostienici
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
+  </section>
 
-    <div class="footer-bottom">
-      <p class="footer-copyright">
-        © {new Date().getFullYear()} La Festa delle Medie. Tutti i diritti riservati.
-      </p>
+  <!-- Footer principale -->
+  <div class="footer-main-section">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Logo e descrizione -->
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">
+            <img src="/images/logo.png" alt="La Festa delle Medie" class="footer-logo-img">
+          </a>
+          <p class="footer-description">
+            Un progetto culturale che unisce arte, musica e comunita nel cuore del territorio.
+          </p>
+        </div>
+
+        <!-- Link navigazione -->
+        <div class="footer-nav">
+          <h4 class="footer-nav-title">Navigazione</h4>
+          <nav class="footer-nav-links">
+            <a href="/" class="footer-nav-link">Home</a>
+            <a href="/chi-siamo" class="footer-nav-link">Chi Siamo</a>
+            <a href="/ambassador" class="footer-nav-link">Ambassador</a>
+            <a href="/support" class="footer-nav-link">Support</a>
+            <a href="/shop" class="footer-nav-link">Shop</a>
+            <a href="/contatti" class="footer-nav-link">Contatti</a>
+          </nav>
+        </div>
+
+        <!-- Contatti -->
+        <div class="footer-contact">
+          <h4 class="footer-nav-title">Contatti</h4>
+          <div class="footer-contact-info">
+            <a href="mailto:info@lafestadellemedie.it" class="footer-contact-link">
+              info@lafestadellemedie.it
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <span class="copyright">
+          {new Date().getFullYear()} La Festa delle Medie. Tutti i diritti riservati.
+        </span>
+        <div class="footer-legal">
+          <a href="/privacy" class="footer-legal-link">Privacy Policy</a>
+          <a href="/trasparenza" class="footer-legal-link">Trasparenza</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: var(--color-black);
-    color: var(--color-white);
-    padding: var(--space-xl) 0 var(--space-md);
-    margin-top: var(--space-2xl);
-    margin-left: 100px;
+    background: var(--color-white);
+    position: relative;
+    z-index: 3;
   }
 
-  .footer-content {
+  /* Sezione Amici */
+  .friends-section {
+    background: var(--color-accent);
+    color: var(--color-white);
+    padding: var(--space-3xl) 0;
+  }
+
+  .friends-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .friends-title {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--color-white);
+  }
+
+  .friends-description {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-xl);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* Footer principale */
+  .footer-main-section {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: var(--space-3xl) 0 var(--space-xl);
+  }
+
+  .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: var(--space-lg);
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .footer-brand {
+    max-width: 300px;
+  }
+
+  .footer-logo {
+    display: inline-block;
+    margin-bottom: var(--space-lg);
+    opacity: 1 !important;
+  }
+
+  .footer-logo:hover {
+    opacity: 1 !important;
+  }
+
+  .footer-logo-img {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    border-radius: 0;
+  }
+
+  .footer-description {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+
+  .footer-nav-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-white);
     margin-bottom: var(--space-lg);
   }
 
-  .footer-section {
+  .footer-nav-links {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
   }
 
-  .footer-title {
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    letter-spacing: var(--tracking-wide);
-    margin-bottom: var(--space-xs);
-    text-transform: none;
-  }
-
-  .footer-subtitle {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-  }
-
-  .footer-text {
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
-    max-width: 300px;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .footer-link {
-    font-size: var(--text-base);
-    font-weight: 400;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: var(--space-md);
-  }
-
-  .footer-copyright {
+  .footer-nav-link {
     font-size: var(--text-sm);
-    text-align: center;
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-nav-link:hover {
+    color: var(--color-white);
+    opacity: 1;
+  }
+
+  .footer-contact-link {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-contact-link:hover {
+    color: var(--color-white);
+    opacity: 1;
+  }
+
+  /* Footer bottom */
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .copyright {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .footer-legal-link {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-legal-link:hover {
+    color: var(--color-white);
+    opacity: 1;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .footer-brand {
+      grid-column: span 2;
+      max-width: none;
+    }
   }
 
   @media (max-width: 768px) {
-    .footer {
-      padding: var(--space-lg) 0 var(--space-md);
-      margin-top: var(--space-xl);
-      margin-left: 60px;
+    .friends-section {
+      padding: var(--space-2xl) 0;
     }
 
-    .footer-content {
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
+    .friends-title {
+      font-size: var(--text-2xl);
     }
 
-    .footer-title {
-      font-size: var(--text-xl);
-    }
-
-    .footer-subtitle {
+    .friends-description {
       font-size: var(--text-base);
     }
-  }
 
-  @media (max-width: 480px) {
-    .footer {
-      margin-left: 50px;
+    .footer-main-section {
+      padding: var(--space-2xl) 0 var(--space-lg);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .footer-brand {
+      grid-column: span 1;
+      text-align: center;
+      max-width: none;
+    }
+
+    .footer-nav,
+    .footer-contact {
+      text-align: center;
+    }
+
+    .footer-nav-links {
+      align-items: center;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: var(--space-md);
+      text-align: center;
     }
   }
 </style>

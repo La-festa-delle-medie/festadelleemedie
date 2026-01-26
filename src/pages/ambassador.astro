@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+
+// Lista degli Ambassador
+const ambassadors = [
+  { name: 'Mario Rossi', role: 'Curatore' },
+  { name: 'Giulia Bianchi', role: 'Artista' },
+  { name: 'Francesco Verdi', role: 'Gallerista' },
+  { name: 'Elena Neri', role: 'Collezionista' },
+  { name: 'Andrea Conti', role: 'Critico d\'arte' },
+  { name: 'Chiara Moretti', role: 'Mecenate' },
+];
+---
+
+<BaseLayout
+  title="Ambassador - La Festa delle Medie"
+  description="Gli Ambassador de La Festa delle Medie supportano la diffusione della nostra mission culturale"
+>
+  <div class="page-content">
+    <div class="container">
+      <!-- Header -->
+      <header class="page-header">
+        <h1 class="page-title">Ambassador</h1>
+      </header>
+
+      <!-- Mission -->
+      <section class="mission-section">
+        <div class="mission-content">
+          <p class="mission-text">
+            Gli Ambassador de La Festa delle Medie supportano la diffusione della mission del Festival,
+            condividendone la visione e i valori.
+          </p>
+          <p class="mission-text">
+            Insieme lavoriamo per unire persone e competenze, generare idee,
+            rispettare il territorio e trasmettere valori attraverso il dialogo
+            con artisti e comunita.
+          </p>
+          <p class="mission-text">
+            Il loro impegno e fondamentale per la crescita del Festival e per
+            portare la cultura contemporanea a un pubblico sempre piu ampio.
+          </p>
+        </div>
+      </section>
+
+      <!-- Lista Ambassador -->
+      <section class="ambassadors-section">
+        <div class="ambassadors-list">
+          {ambassadors.map((ambassador) => (
+            <div class="ambassador-item">
+              <span class="ambassador-name">{ambassador.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- CTA Support -->
+      <section class="support-cta">
+        <p class="cta-text">
+          Vuoi sostenere La Festa delle Medie?
+        </p>
+        <a href="/support" class="btn-outline">Scopri come supportarci</a>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding-top: calc(72px + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .page-title {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+  }
+
+  /* Mission */
+  .mission-section {
+    margin-bottom: var(--space-3xl);
+    max-width: 800px;
+  }
+
+  .mission-text {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    color: var(--color-gray-dark);
+    margin-bottom: var(--space-lg);
+  }
+
+  .mission-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Ambassadors List */
+  .ambassadors-section {
+    margin-bottom: var(--space-3xl);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-black);
+  }
+
+  .ambassadors-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ambassador-item {
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .ambassador-name {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--color-black);
+  }
+
+  /* CTA */
+  .support-cta {
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-black);
+  }
+
+  .cta-text {
+    font-size: var(--text-xl);
+    color: var(--color-gray-dark);
+    margin-bottom: var(--space-lg);
+  }
+
+  @media (max-width: 768px) {
+    .page-content {
+      padding-top: calc(65px + var(--space-2xl));
+    }
+
+    .page-title {
+      font-size: var(--text-3xl);
+    }
+
+    .mission-text {
+      font-size: var(--text-lg);
+    }
+
+    .ambassador-name {
+      font-size: var(--text-xl);
+    }
+  }
+</style>

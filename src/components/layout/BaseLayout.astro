@@ -1,8 +1,8 @@
 ---
 import Header from './Header.astro';
 import Footer from './Footer.astro';
-import ThemeColorLoader from '../ThemeColorLoader.astro';
 import '../../styles/global.css';
+import siteSettings from '../../content/settings/site.json';
 
 interface Props {
   title?: string;
@@ -13,6 +13,8 @@ const {
   title = 'La Festa delle Medie',
   description = 'Sito ufficiale de La Festa delle Medie'
 } = Astro.props;
+
+const themeColor = siteSettings.themeColor || '#2D5A5A';
 ---
 
 <!DOCTYPE html>
@@ -24,29 +26,51 @@ const {
   <meta name="description" content={description}>
   <link rel="icon" type="image/png" href="/images/logo.png">
 
-  <!-- Google Fonts Preconnect -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-
-  <ThemeColorLoader />
+  <!-- Colore tema dinamico dal CMS -->
+  <style define:vars={{ themeColor }}>
+    :root {
+      --color-accent: var(--themeColor);
+    }
+  </style>
 </head>
 <body>
   <Header />
-  <main class="main-content">
-    <slot />
-  </main>
-  <Footer />
+  <div class="page-wrapper">
+    <main class="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </div>
 </body>
 </html>
 
 <style>
+  .page-wrapper {
+    margin-left: 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   .main-content {
-    margin: 0;
-    padding: 0;
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    .page-wrapper {
+      margin-left: 60px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page-wrapper {
+      margin-left: 50px;
+    }
   }
 </style>

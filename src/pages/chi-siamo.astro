@@ -1,797 +1,158 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
-import Container from '../components/ui/Container.astro';
 ---
 
 <BaseLayout
   title="Chi Siamo - La Festa delle Medie"
   description="Scopri chi siamo e cosa facciamo"
 >
-  <!-- Hero Text Only -->
-  <section class="hero-text">
-    <Container>
-      <h1 class="hero-title">
-        CHI<br>SIAMO
-      </h1>
-    </Container>
-  </section>
-
-  <!-- Intro Section con Layout Asimmetrico -->
-  <section class="intro-section">
-    <div class="intro-layout">
-      <div class="intro-number">01</div>
-      <div class="intro-content">
-        <h2 class="intro-heading">Un progetto culturale</h2>
-        <p class="intro-lead">
-          La Festa delle Medie è un organismo culturale pubblico e visionario,
+  <div class="page-content">
+    <div class="container">
+      <!-- Hero -->
+      <header class="page-header">
+        <h1 class="page-title">Chi Siamo</h1>
+        <p class="page-subtitle">
+          La Festa delle Medie e un organismo culturale pubblico e visionario,
           che da oltre cinquant'anni fa della ricerca artistica uno spazio di relazione,
-          programmando attività locali e internazionali.
+          programmando attivita locali e internazionali.
         </p>
+      </header>
+
+      <!-- Immagine principale -->
+      <div class="page-image">
+        <img src="/images/event1.jpg" alt="La Festa delle Medie" />
       </div>
-    </div>
-  </section>
 
-  <!-- Image Block Full Width -->
-  <section class="image-block">
-    <div class="media-wrapper">
-      <img src="/images/img.jpg" alt="La Festa delle Medie" />
-    </div>
-  </section>
-
-  <!-- Mission Statement - Layout a Blocchi -->
-  <section class="mission-section">
-    <Container>
-      <div class="mission-grid">
-        <div class="mission-box mission-box-1">
-          <span class="mission-label">LA NOSTRA VISIONE</span>
-          <h3 class="mission-text">
-            CREARE SPAZI<br>
-            DI RELAZIONE<br>
-            CON LA<br>
-            COMUNITÀ
-          </h3>
-        </div>
-
-        <div class="mission-box mission-box-2">
-          <p class="mission-description">
-            Attraverso l'arte contemporanea, la musica sperimentale e le
-            performance dal vivo, creiamo momenti di incontro e dialogo
-            che trasformano gli spazi urbani in luoghi di condivisione culturale.
-          </p>
-        </div>
-
-        <div class="mission-box mission-box-3">
-          <div class="mission-stat">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">Anni di attività</span>
-          </div>
-        </div>
-
-        <div class="mission-box mission-box-4">
-          <div class="mission-stat">
-            <span class="stat-number">200+</span>
-            <span class="stat-label">Eventi realizzati</span>
-          </div>
-        </div>
-      </div>
-    </Container>
-  </section>
-
-  <!-- Text + Image Split -->
-  <section class="split-section">
-    <div class="split-layout">
-      <div class="split-image">
-        <div class="media-wrapper">
-          <img src="/images/img 2.jpg" alt="Eventi e performance" />
-        </div>
-      </div>
-      <div class="split-content">
-        <span class="split-number">02</span>
-        <h2 class="split-title">Cosa Facciamo</h2>
-        <div class="split-text">
-          <p>
-            <strong>Programmiamo eventi</strong> che spaziano dalla musica dal vivo
+      <!-- Contenuto -->
+      <div class="content-grid">
+        <div class="content-block">
+          <h2 class="content-title">Eventi</h2>
+          <p class="content-text">
+            Programmiamo eventi che spaziano dalla musica dal vivo
             alle installazioni artistiche, dal teatro sperimentale alle
             proiezioni cinematografiche.
           </p>
-          <p>
-            <strong>Sosteniamo artisti emergenti</strong> offrendo spazi e
-            opportunità per esprimere la loro creatività e sperimentare
+        </div>
+
+        <div class="content-block">
+          <h2 class="content-title">Artisti</h2>
+          <p class="content-text">
+            Sosteniamo artisti emergenti offrendo spazi e
+            opportunita per esprimere la loro creativita e sperimentare
             nuovi linguaggi espressivi.
           </p>
-          <p>
-            <strong>Creiamo comunità</strong> attraverso workshop, laboratori
+        </div>
+
+        <div class="content-block">
+          <h2 class="content-title">Comunita</h2>
+          <p class="content-text">
+            Creiamo comunita attraverso workshop, laboratori
             e momenti di incontro aperti a tutti, dove l'arte diventa
             strumento di connessione sociale.
           </p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Values Grid - Design Asimmetrico -->
-  <section class="values-section">
-    <Container>
-      <h2 class="values-title">I NOSTRI VALORI</h2>
-
-      <div class="values-grid">
-        <div class="value-card value-card-large">
-          <span class="value-icon">★</span>
-          <h3 class="value-name">Inclusività</h3>
-          <p class="value-text">
-            Creiamo spazi aperti e accoglienti dove ogni persona può
-            partecipare, contribuire e sentirsi parte di una comunità.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <span class="value-icon">●</span>
-          <h3 class="value-name">Sperimentazione</h3>
-          <p class="value-text">
-            Incoraggiamo la ricerca di nuovi linguaggi artistici e
-            forme espressive innovative.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <span class="value-icon">■</span>
-          <h3 class="value-name">Sostenibilità</h3>
-          <p class="value-text">
-            Promuoviamo pratiche eco-consapevoli in ogni aspetto
-            della nostra attività.
-          </p>
-        </div>
-
-        <div class="value-card value-card-wide">
-          <span class="value-icon">▲</span>
-          <h3 class="value-name">Indipendenza</h3>
-          <p class="value-text">
-            Manteniamo la nostra autonomia artistica e programmatica,
-            liberi da condizionamenti commerciali o politici.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <span class="value-icon">◆</span>
-          <h3 class="value-name">Collaborazione</h3>
-          <p class="value-text">
-            Costruiamo reti con altre realtà culturali locali e internazionali.
-          </p>
-        </div>
+      <!-- CTA -->
+      <div class="page-cta">
+        <a href="/eventi" class="btn-outline">Scopri gli Eventi</a>
       </div>
-    </Container>
-  </section>
-
-  <!-- Final Image Block -->
-  <section class="image-block image-block-half">
-    <div class="media-wrapper overlay-light">
-      <img src="/images/img 3.jpg" alt="La nostra comunità" />
     </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <Container>
-      <div class="cta-content">
-        <h2 class="cta-title">
-          PARTECIPA<br>
-          AI NOSTRI<br>
-          EVENTI
-        </h2>
-        <a href="/eventi" class="cta-button">Scopri gli Eventi</a>
-      </div>
-    </Container>
-  </section>
-
+  </div>
 </BaseLayout>
 
 <style>
-  /* Hero Text Only */
-  .hero-text {
-    padding: 200px 0 160px;
-    margin-left: 100px;
+  .page-content {
+    padding-top: calc(72px + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
   }
 
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: 180px;
-    font-weight: 800;
-    font-variation-settings: 'wght' 800;
-    line-height: 0.85;
-    letter-spacing: var(--tracking-tighter);
-    text-transform: uppercase;
-    color: var(--color-black);
+  .page-header {
+    margin-bottom: var(--space-2xl);
+    max-width: 800px;
   }
 
-  /* Intro Section */
-  .intro-section {
-    padding: 120px 0;
-    background: var(--color-gray-light);
-    margin-left: 100px;
-  }
-
-  .intro-layout {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 var(--space-xl);
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .intro-number {
-    font-family: var(--font-display);
-    font-size: 240px;
-    font-weight: 800;
-    line-height: 0.8;
-    letter-spacing: var(--tracking-tighter);
-    color: rgba(0, 0, 0, 0.05);
-  }
-
-  .intro-content {
-    padding-top: 40px;
-  }
-
-  .intro-heading {
-    font-family: var(--font-display);
-    font-size: 64px;
+  .page-title {
+    font-size: var(--text-5xl);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-tight);
-    line-height: var(--leading-tight);
-    margin-bottom: 40px;
+    margin-bottom: var(--space-lg);
   }
 
-  .intro-lead {
-    font-family: var(--font-body);
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    max-width: 900px;
+  .page-subtitle {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
     color: var(--color-gray-dark);
+    margin: 0;
   }
 
-  /* Image Block Full Width */
-  .image-block {
-    width: calc(100vw - 100px);
-    height: 70vh;
-    margin-left: 100px;
-    position: relative;
+  .page-image {
+    margin-bottom: var(--space-3xl);
   }
 
-  .image-block .media-wrapper {
+  .page-image img {
     width: 100%;
-    height: 100%;
-  }
-
-  .image-block img {
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 21/9;
     object-fit: cover;
   }
 
-  .image-block-half {
-    height: 50vh;
-    margin-top: 120px;
-  }
-
-  /* Mission Section - Blocchi Asimmetrici */
-  .mission-section {
-    padding: 160px 0;
-    margin-left: 100px;
-  }
-
-  .mission-grid {
+  .content-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
   }
 
-  .mission-box {
-    background: var(--color-white);
-    border: 3px solid var(--color-black);
-    padding: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  .content-block {
+    padding: 0;
   }
 
-  .mission-box-1 {
-    grid-column: span 2;
-    grid-row: span 2;
-    background: var(--color-black);
-    color: var(--color-white);
-    padding: var(--space-xl);
+  .content-title {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
   }
 
-  .mission-box-2 {
-    grid-column: span 2;
+  .content-text {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-gray-dark);
+    margin: 0;
   }
 
-  .mission-box-3,
-  .mission-box-4 {
-    grid-column: span 1;
-    justify-content: center;
-    align-items: center;
+  .page-cta {
     text-align: center;
   }
 
-  .mission-label {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: var(--tracking-wider);
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-
-  .mission-text {
-    font-family: var(--font-display);
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: var(--tracking-tight);
-    text-transform: uppercase;
-  }
-
-  .mission-description {
-    font-family: var(--font-body);
-    font-size: var(--text-lg);
-    line-height: var(--leading-relaxed);
-    letter-spacing: -0.005em;
-  }
-
-  .mission-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .stat-number {
-    font-family: var(--font-display);
-    font-size: 72px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: var(--tracking-tighter);
-  }
-
-  .stat-label {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-
-  /* Split Section */
-  .split-section {
-    margin-left: 100px;
-  }
-
-  .split-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 600px;
-  }
-
-  .split-image {
-    position: relative;
-  }
-
-  .split-image .media-wrapper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .split-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .split-content {
-    background: var(--color-black);
-    color: var(--color-white);
-    padding: var(--space-2xl);
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    position: relative;
-  }
-
-  .split-number {
-    font-family: var(--font-display);
-    font-size: 180px;
-    font-weight: 800;
-    line-height: 0.8;
-    letter-spacing: var(--tracking-tighter);
-    color: rgba(255, 255, 255, 0.08);
-    position: absolute;
-    top: -40px;
-    right: 40px;
-  }
-
-  .split-title {
-    font-family: var(--font-display);
-    font-size: 56px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-tight);
-    line-height: var(--leading-tight);
-    z-index: 1;
-  }
-
-  .split-text {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    z-index: 1;
-  }
-
-  .split-text p {
-    font-family: var(--font-body);
-    font-size: var(--text-lg);
-    line-height: var(--leading-relaxed);
-    letter-spacing: -0.005em;
-  }
-
-  .split-text strong {
-    font-weight: 600;
-    color: var(--color-white);
-  }
-
-  /* Values Section */
-  .values-section {
-    padding: 160px 0;
-    margin-left: 100px;
-    background: var(--color-white);
-  }
-
-  .values-title {
-    font-family: var(--font-display);
-    font-size: 120px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-tighter);
-    line-height: 0.85;
-    margin-bottom: 100px;
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-
-  .value-card {
-    background: var(--color-gray-light);
-    border: 2px solid var(--color-black);
-    padding: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .value-card-large {
-    grid-column: span 2;
-    grid-row: span 2;
-    background: var(--color-black);
-    color: var(--color-white);
-    padding: var(--space-xl);
-  }
-
-  .value-card-wide {
-    grid-column: span 2;
-  }
-
-  .value-icon {
-    font-size: 64px;
-    line-height: 1;
-  }
-
-  .value-name {
-    font-family: var(--font-display);
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-tight);
-    line-height: 1.1;
-  }
-
-  .value-text {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
-    letter-spacing: -0.005em;
-  }
-
-  .value-card-large .value-icon {
-    font-size: 96px;
-  }
-
-  .value-card-large .value-name {
-    font-size: var(--text-5xl);
-  }
-
-  .value-card-large .value-text {
-    font-size: var(--text-xl);
-  }
-
-  /* CTA Section */
-  .cta-section {
-    padding: 200px 0;
-    margin-left: 100px;
-    background: var(--color-white);
-  }
-
-  .cta-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-  }
-
-  .cta-title {
-    font-family: var(--font-display);
-    font-size: 96px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-tighter);
-    line-height: 0.9;
-  }
-
-  .cta-button {
-    font-family: var(--font-display);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    background: var(--color-black);
-    color: var(--color-white);
-    padding: 32px 64px;
-    border: 3px solid var(--color-black);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-  }
-
-  .cta-button:hover {
-    background: var(--color-white);
-    color: var(--color-black);
-  }
-
-  /* Responsive */
   @media (max-width: 1024px) {
-    .hero-text,
-    .intro-section,
-    .image-block,
-    .mission-section,
-    .split-section,
-    .values-section,
-    .cta-section {
-      margin-left: 60px;
-    }
-
-    .hero-title {
-      font-size: 120px;
-    }
-
-    .intro-layout {
-      grid-template-columns: 120px 1fr;
-      gap: 40px;
-    }
-
-    .intro-number {
-      font-size: 160px;
-    }
-
-    .intro-heading {
-      font-size: 48px;
-    }
-
-    .intro-lead {
-      font-size: 22px;
-    }
-
-    .mission-grid {
+    .content-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .mission-box-1 {
-      grid-column: span 2;
-    }
-
-    .mission-box-2 {
-      grid-column: span 2;
-    }
-
-    .values-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .value-card-large {
-      grid-column: span 2;
     }
   }
 
   @media (max-width: 768px) {
-    .hero-text,
-    .intro-section,
-    .image-block,
-    .mission-section,
-    .split-section,
-    .values-section,
-    .cta-section {
-      margin-left: 60px;
+    .page-content {
+      padding-top: calc(65px + var(--space-2xl));
     }
 
-    .hero-text {
-      padding: 140px 0 100px;
+    .page-title {
+      font-size: var(--text-3xl);
     }
 
-    .hero-title {
-      font-size: 80px;
-    }
-
-    .intro-section {
-      padding: 80px 0;
-    }
-
-    .intro-layout {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .intro-number {
-      font-size: 120px;
-    }
-
-    .intro-heading {
-      font-size: 36px;
-    }
-
-    .intro-lead {
-      font-size: 18px;
-    }
-
-    .image-block {
-      height: 50vh;
-    }
-
-    .mission-section {
-      padding: 100px 0;
-    }
-
-    .mission-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .mission-box-1,
-    .mission-box-2,
-    .mission-box-3,
-    .mission-box-4 {
-      grid-column: span 1;
-      grid-row: span 1;
-    }
-
-    .mission-text {
-      font-size: 32px;
-    }
-
-    .stat-number {
-      font-size: 56px;
-    }
-
-    .split-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .split-content {
-      padding: var(--space-xl);
-    }
-
-    .split-number {
-      font-size: 120px;
-      top: 20px;
-      right: 20px;
-    }
-
-    .split-title {
-      font-size: 40px;
-    }
-
-    .values-section {
-      padding: 100px 0;
-    }
-
-    .values-title {
-      font-size: 64px;
-      margin-bottom: 60px;
-    }
-
-    .values-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .value-card-large,
-    .value-card-wide {
-      grid-column: span 1;
-    }
-
-    .cta-section {
-      padding: 120px 0;
-    }
-
-    .cta-content {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 40px;
-    }
-
-    .cta-title {
-      font-size: 56px;
-    }
-
-    .cta-button {
-      padding: 24px 48px;
+    .page-subtitle {
       font-size: var(--text-lg);
     }
-  }
 
-  @media (max-width: 480px) {
-    .hero-text,
-    .intro-section,
-    .image-block,
-    .mission-section,
-    .split-section,
-    .values-section,
-    .cta-section {
-      margin-left: 50px;
+    .page-image img {
+      aspect-ratio: 16/9;
     }
 
-    .hero-text {
-      padding: 100px 0 60px;
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
     }
 
-    .hero-title {
-      font-size: 56px;
-    }
-
-    .intro-number {
-      font-size: 80px;
-    }
-
-    .intro-heading {
-      font-size: 28px;
-    }
-
-    .intro-lead {
-      font-size: 16px;
-    }
-
-    .mission-text {
-      font-size: 24px;
-    }
-
-    .split-number {
-      font-size: 80px;
-    }
-
-    .split-title {
-      font-size: 32px;
-    }
-
-    .values-title {
-      font-size: 48px;
-    }
-
-    .cta-title {
-      font-size: 40px;
+    .content-title {
+      font-size: var(--text-xl);
     }
   }
 </style>

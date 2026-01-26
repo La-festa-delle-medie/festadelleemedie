@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import EventCard from '../../components/ui/EventCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const eventi = await getCollection('eventi');
+
+  // Estrai anni unici dagli eventi passati
+  const years = [...new Set(
+    eventi
+      .filter(e => e.data.published && e.data.isPast)
+      .map(e => e.data.year)
+  )];
+
+  return years.map((year) => ({
+    params: { year },
+    props: { year },
+  }));
+}
+
+const { year } = Astro.props;
+
+// Carica eventi passati per l'anno specifico
+const allEvents = await getCollection('eventi');
+const archivedEvents = allEvents
+  .filter(e => e.data.published && e.data.isPast && e.data.year === year)
+  .map(e => ({
+    title: e.data.title,
+    image: e.data.image,
+    slug: e.slug,
+    location: e.data.location
+  }));
+
+// Ottieni tutti gli anni per la navigazione
+const allYears = [...new Set(
+  allEvents
+    .filter(e => e.data.published && e.data.isPast)
+    .map(e => e.data.year)
+)].sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout
+  title={`Archivio ${year} - La Festa delle Medie`}
+  description={`Gli eventi dell'edizione ${year} de La Festa delle Medie`}
+>
+  <div class="page-content">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">Archivio {year}</h1>
+      </header>
+
+      <section class="archive-section">
+        {archivedEvents.length > 0 ? (
+          <div class="archive-grid">
+            {archivedEvents.map((event) => (
+              <EventCard
+                title={event.title}
+                image={event.image}
+                slug={event.slug}
+                location={event.location}
+              />
+            ))}
+          </div>
+        ) : (
+          <p class="no-events">Nessun evento archiviato per il {year}.</p>
+        )}
+      </section>
+
+      <nav class="archive-nav">
+        <span class="nav-label">Altri anni:</span>
+        <div class="nav-buttons">
+          {allYears.filter(y => y !== year).map((y) => (
+            <a href={`/archivio/${y}`} class="archive-link">{y}</a>
+          ))}
+        </div>
+      </nav>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding-top: calc(72px + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .page-title {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+  }
+
+  .archive-section {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .no-events {
+    font-size: var(--text-lg);
+    color: var(--color-gray);
+    text-align: center;
+    padding: var(--space-3xl) 0;
+  }
+
+  .archive-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-label {
+    font-size: var(--text-base);
+    color: var(--color-gray);
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .archive-link {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-lg);
+    background: var(--color-black);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--text-base);
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+  }
+
+  .archive-link:hover {
+    background: var(--color-accent);
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .page-content {
+      padding-top: calc(65px + var(--space-2xl));
+    }
+
+    .page-title {
+      font-size: var(--text-3xl);
+    }
+
+    .archive-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .archive-nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

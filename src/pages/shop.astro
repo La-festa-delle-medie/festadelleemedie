@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allProducts = await getCollection('shop');
+const products = allProducts.filter(p => p.data.published);
+---
+
+<BaseLayout
+  title="Shop - La Festa delle Medie"
+  description="Acquista il merchandising de La Festa delle Medie"
+>
+  <div class="page-content">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">Shop</h1>
+      </header>
+
+      <section class="products-section">
+        <div class="products-grid">
+          {products.map((product) => (
+            <article class="product-card">
+              <div class="product-image">
+                <img src={product.data.image} alt={product.data.title} />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">{product.data.title}</h3>
+                <span class="product-price">{product.data.price} EUR</span>
+                <a href={product.data.buyLink} target="_blank" rel="noopener noreferrer" class="btn-buy">
+                  Acquista
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding-top: calc(72px + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .page-title {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .product-card {
+    overflow: hidden;
+  }
+
+  .product-image {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--color-gray-light);
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-info {
+    padding: var(--space-lg);
+    text-align: center;
+  }
+
+  .product-title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .product-price {
+    display: block;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+
+  .btn-buy {
+    display: inline-block;
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: var(--space-sm) var(--space-xl);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-wider);
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+  }
+
+  .btn-buy:hover {
+    background: var(--color-accent);
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .page-content {
+      padding-top: calc(65px + var(--space-2xl));
+    }
+
+    .page-title {
+      font-size: var(--text-3xl);
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }
+</style>
